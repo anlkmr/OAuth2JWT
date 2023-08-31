@@ -1,0 +1,105 @@
+{
+	"info": {
+		"_postman_id": "a7fb994a-628b-47c7-9c76-e69dedfbea86",
+		"name": "TestAuth2Jwt",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "1219016"
+	},
+	"item": [
+		{
+			"name": "Token_Request",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "pixeltrice-secret-key",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "pixeltrice",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "grant_type",
+							"value": "password",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "admin@pixeltrice.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "password",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/oauth/token",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"oauth",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/home",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2OTM0NzMxMjEsInVzZXJfbmFtZSI6ImFkbWluQHBpeGVsdHJpY2UuY29tIiwiYXV0aG9yaXRpZXMiOlsiUk9MRV9TWVNURU1BRE1JTiJdLCJqdGkiOiI0ZmM4Njc5ZS1jZDU4LTRhNzgtODg4Yy03YjRjZmUwODlhYmEiLCJjbGllbnRfaWQiOiJwaXhlbHRyaWNlIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl19.bIZBcwv_CXKZ0rI-hqwmcQRmzeHQD9DYBSk1s8qw5QU",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2OTM0NzMxMjEsInVzZXJfbmFtZSI6ImFkbWluQHBpeGVsdHJpY2UuY29tIiwiYXV0aG9yaXRpZXMiOlsiUk9MRV9TWVNURU1BRE1JTiJdLCJqdGkiOiI0ZmM4Njc5ZS1jZDU4LTRhNzgtODg4Yy03YjRjZmUwODlhYmEiLCJjbGllbnRfaWQiOiJwaXhlbHRyaWNlIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl19.bIZBcwv_CXKZ0rI-hqwmcQRmzeHQD9DYBSk1s8qw5QU",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/home",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"home"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
